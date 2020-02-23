@@ -1,2 +1,3 @@
 rootProject.name = 'ConnectingTheDots'
 include ':app'
+include ':core'

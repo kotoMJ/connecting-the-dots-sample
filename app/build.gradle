@@ -33,27 +33,13 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(':core')
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-rc03"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-rc03"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0-rc03"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0-rc03"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0-rc03"
-
-    implementation "androidx.fragment:fragment-ktx:1.2.0-rc03"
-
-    implementation "com.google.dagger:dagger:2.25.3"
+    // Common Dagger (minimal dagger dependency to generate classes across all modules)
     kapt "com.google.dagger:dagger-compiler:2.25.3"
-    kapt "com.google.dagger:dagger-android-processor:2.25.3"
 
-    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2"
-    kapt "com.squareup.inject:assisted-inject-processor-dagger2:0.5.2"
+    compileOnly 'com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2'
+    kapt 'com.squareup.inject:assisted-inject-processor-dagger2:0.5.2'
+
+
 }
